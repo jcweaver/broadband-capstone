@@ -104,50 +104,56 @@ The table below is a brief overview of the data columns found in the final datas
 
 
 ## More Info on RUCA Codes
-Below is more information on the RUCA codes RUCA1 & RUCA2
-Primary RUCA Codes, 2010	
-1    Metropolitan area core: primary flow within an urbanized area (UA)	
-2    Metropolitan area high commuting: primary flow 30% or more to a UA	
-3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	
-4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	
-5    Micropolitan high commuting: primary flow 30% or more to a large UC	
-6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	
-7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	
-8    Small town high commuting: primary flow 30% or more to a small UC	
-9    Small town low commuting: primary flow 10% to 30% to a small UC	
-10  Rural areas: primary flow to a tract outside a UA or UC	
-99  Not coded: Census tract has zero population and no rural-urban identifier information	
+Below is more information on the RUCA codes RUCA1 & RUCA2 \
+
+
+Primary RUCA Codes, 2010 \
+
 	
-Secondary RUCA Codes, 2010	
-1    Metropolitan area core: primary flow within an urbanized area (UA)	
-1	No additional code
-1.1	Secondary flow 30% to 50% to a larger UA
-2    Metropolitan area high commuting: primary flow 30% or more to a UA	
-2	No additional code
-2.1	Secondary flow 30% to 50% to a larger UA
-3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	
-3	No additional code
-4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	
-4	No additional code
-4.1	Secondary flow 30% to 50% to a UA
-5    Micropolitan high commuting: primary flow 30% or more to a large UC	
-5	No additional code
-5.1	Secondary flow 30% to 50% to a UA
-6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	
-6	No additional code
-7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	
-7	No additional code
-7.1	Secondary flow 30% to 50% to a UA
-7.2	Secondary flow 30% to 50% to a large UC
-8    Small town high commuting: primary flow 30% or more to a small UC	
-8	No additional code
-8.1	Secondary flow 30% to 50% to a UA
-8.2	Secondary flow 30% to 50% to a large UC
-9    Small town low commuting: primary flow 10% to 30% to a small UC	
-9	No additional code
-10  Rural areas: primary flow to a tract outside a UA or UC	
-10	No additional code
-10.1	Secondary flow 30% to 50% to a UA
-10.2	Secondary flow 30% to 50% to a large UC
-10.3	Secondary flow 30% to 50% to a small UC
-99  Not coded: Census tract has zero population and no rural-urban identifier information	
+1    Metropolitan area core: primary flow within an urbanized area (UA)	\
+2    Metropolitan area high commuting: primary flow 30% or more to a UA	\
+3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	\
+4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	\
+5    Micropolitan high commuting: primary flow 30% or more to a large UC	\
+6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	\
+7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	\
+8    Small town high commuting: primary flow 30% or more to a small UC	\
+9    Small town low commuting: primary flow 10% to 30% to a small UC	\
+10  Rural areas: primary flow to a tract outside a UA or UC	\
+99  Not coded: Census tract has zero population and no rural-urban identifier information	\
+	
+Secondary RUCA Codes, 2010	\
+
+
+1    Metropolitan area core: primary flow within an urbanized area (UA)	\
+1	No additional code\
+1.1	Secondary flow 30% to 50% to a larger UA\
+2    Metropolitan area high commuting: primary flow 30% or more to a UA	\
+2	No additional code\
+2.1	Secondary flow 30% to 50% to a larger UA\
+3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	\
+3	No additional code\
+4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	\
+4	No additional code\
+4.1	Secondary flow 30% to 50% to a UA\
+5    Micropolitan high commuting: primary flow 30% or more to a large UC	\
+5	No additional code\
+5.1	Secondary flow 30% to 50% to a UA\
+6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	\
+6	No additional code\
+7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	\
+7	No additional code\
+7.1	Secondary flow 30% to 50% to a UA\
+7.2	Secondary flow 30% to 50% to a large UC\
+8    Small town high commuting: primary flow 30% or more to a small UC	\
+8	No additional code\
+8.1	Secondary flow 30% to 50% to a UA\
+8.2	Secondary flow 30% to 50% to a large UC\
+9    Small town low commuting: primary flow 10% to 30% to a small UC	\
+9	No additional code\
+10  Rural areas: primary flow to a tract outside a UA or UC	\
+10	No additional code\
+10.1	Secondary flow 30% to 50% to a UA\
+10.2	Secondary flow 30% to 50% to a large UC\
+10.3	Secondary flow 30% to 50% to a small UC\
+99  Not coded: Census tract has zero population and no rural-urban identifier information\	
