@@ -28,6 +28,126 @@
 
 ## Overview of Data Columns
 
+The table below is a brief overview of the data columns found in the final dataset: [weighted_merged_all.csv](https://github.com/jcweaver/broadband-capstone/blob/main/data/weighted_merged_all.csv)
+
 | Column Name | Definition |
 | --- | ---- | 
-| | |
+| Zip | US Zipcode. Note that US Zipcodes have 5 digits. The dataset keeps removing 0s from the front of zipcodes that start with digit 0 so if you see less than 5 digits, append 0s to the front until the full zipcode is 5 digits long. |
+| WiredCount_2020 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code in 2020 |
+| Fwcount_2020 | Number of Fixed Wireless Providers (WISPs) present in a zip code in 2020 |
+| AllProviderCount_2020 | Number of Providers of any technology present in a zip code in 2020 |
+| Wired25_3_2020 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code offering speeds of at least 25 Mbps Download / 3 Mbps Upload in 2020 |
+| Wired100_3_2020 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code offering speeds of at least 100 Mbps Download / 3 Mbps Upload in 2020 |
+| All25_3_2020 | Number of Providers (any technology) present in a zip code offering speeds of at least 25 Mbps Download / 3 Mbps Upload |
+| All100_3 | Number of Providers (any technology) present in a zip code offering speeds of at least 100 Mbps Download / 3 Mbps Upload |
+| TestCount | Number of M-Lab Speed Tests Conducted in Zip, rolling 12 months |
+| AverageMbps | Average Download Speed via M-Lab Speed Tests, rolling 12 months |
+| FastestAverageMbps | Fastest Average (90th Percentile) Download Speed via M-Lab Speed Tests, rolling 12 months |
+| %Access to Terrestrial Broadband | Percent of the Zip's Population that has Access to Terrestrial (Wired + Fixed Wireless) Broadband (25 Mbps Download / 3 Mbps Upload) |
+| Lowest Priced Terrestrial Broadband Plan | The Lowest Regular Monthly Priced Terrestrial (Wired + Fixed Wireless) Residential Standalone-Internet Broadband (25 Mbps Download / 3 Mbps Upload) Plan available in the zip |
+| WiredCount_2015 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code in 2015 |
+| Fwcount_2015 | Number of Fixed Wireless Providers (WISPs) present in a zip code in 2015 |
+| AllProviderCount_2015 | Number of Providers of any technology present in a zip code in 2015 |
+| Wired25_3_2015 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code offering speeds of at least 25 Mbps Download / 3 Mbps Upload in 2015 |
+| Wired100_3_2015 | Number of Wired (Cable, Copper, DSL, Fiber) Providers present in a zip code offering speeds of at least 100 Mbps Download / 3 Mbps Upload in 2015 |
+| All25_3_2015 | Number of Providers (any technology) present in a zip code offering speeds of at least 25 Mbps Download / 3 Mbps Upload |
+| All100_3.1 | Number of Providers (any technology) present in a zip code offering speeds of at least 100 Mbps Download / 3 Mbps Upload |
+| Total_Enrolled_Households | Total Number Of Enrolled Households in the EBB Subsidy |
+| ST | Two letter state abbreviation where the zip code is located  |
+| COUNTY NAME | County name where the zip code is located |
+| BROADBAND USAGE | Estimated % of the population in the zipcode that is using the internet at broadband speed. |
+| ERROR RANGE (MAE)(+/-) | mean absolute error (MAE). The non-private broadband coverage estimate will be, on average, within the mean absolute error (MAE) error range. |
+| ERROR RANGE (95%)(+/-) | 95th percentile error range. For 95% of the time, the non-private broadband coverage estimate for zip codes with a similar number of households will be within 95th percentile error range. |
+| MSD | We also provide the mean signed deviation (MSD). The mean signed deviation offers an estimate of bias introduced by the process. |
+| ZIP_TYPE | Distinguishes “Zip Code Areas” and “Post Offices or large volume customers” |
+| RUCA1 | Primary RUCA code |
+| RUCA2 | Secondary RUCA code |
+| median_age_overall | Weighted average of the median age of all residents in the zip code |
+| median_age_male | Weighted average of the median age of all male residents in the zip code  |
+| median_age_female | Weighted average of the median age of all female residents in the zip code  |
+| employment_rate | Weighted average of the % of the population that is employed in the zip code |
+| median_income | Weighted average of the median income of all residents in the zip code |
+| total_households | Weighted average of the total number of households in the zip code |
+| ave_household_size | Weighted average of the average household size in the zip code  |
+| ave_family_size | Weighted average of the average family size in the zip code  |
+| total_population | Weighted average of the total population size in the zip code  |
+| median_house_value | Weighted average of the median house value in the zip code  | 
+| pct_white | Weighted average of the percent non-Hispanic/Latino white in the zip code | 
+| pct_hisp_latino | Weighted average of the percent Hispanic/Latino of any race in the zip code | 
+| pct_black | Weighted average of the percent non-Hispanic/Latino black in the zip code | 
+| pct_native | Weighted average of the percent non-Hispanic/Latino American Indian and Alaska Native in the zip code | 
+| pct_asian | Weighted average of the percent non-Hispanic/Latino Asian in the zip code | 
+| pct_hi_pi | Weighted average of the percent non-Hispanic/Latino Native Hawaiian and Other Pacific Islander in the zip code | 
+| pct_other_race | Weighted average of the percent non-Hispanic/Latino and some other race alone in the zip code | 
+| pct_two+_race | Weighted average of the percent non-Hispanic/Latino two or more races alone in the zip code |
+| pct_rent_burdened | Weighted average of the percent of the population that pays more than 30% of their income on rent in the zip code | 
+| poverty_rate | Weighted average of the percent of the population in poverty in the zip code  | 
+| pct_pop_bachelors+ | Weighted average of the percent of the population with at least a Bachelor's degree in the zip code  | 
+| pct_pop_hs+ | Weighted average of the percent of the population with at least a HS diploma in the zip code  | 
+| pct_internet | Weighted average of the percent of the population with an internet subscription in the zip code  | 
+| pct_internet_dial_up | Weighted average of the percent of the population with a dial-up internet subscription in the zip code | 
+| pct_internet_broadband_any_type | Weighted average of the percent of the population with a broadband (>25mbps) internet subscription of any type in the zip code | 
+| pct_internet_cellular | Weighted average of the percent of the population with a internet subscription and a cellular data plan in the zip code | 
+| pct_only_cellular |  Weighted average of the percent of the population with only a cellular data plan as the internet subscription in the zip code | 
+| pct_internet_broadband_fiber | Weighted average of the percent of the population  - With an Internet subscription!!Broadband such as cable, fiber optic or DSL | 
+| pct_internet_broadband_satellite | Weighted average of the percent of the population  - With an Internet subscription!!Satellite Internet service | 
+| pct_internet_only_satellite | Weighted average of the percent of the population  - With an Internet subscription!!Satellite Internet service!!Satellite Internet service with no other type of Internet subscription | 
+| pct_internet_other | Weighted average of the percent of the population  - With an Internet subscription!!Other service with no other type of Internet subscription | 
+| pct_internet_no_subscrp | Weighted average of the percent of the population  - Internet access without a subscription | 
+| pct_internet_none | Weighted average of the percent of the population  - No Internet access | 
+| pct_computer | Weighted average of the percent of the population  - Has a computer |
+| pct_computer_with_dialup | Weighted average of the percent of the population  - Has a computer:!!With dial-up Internet subscription alone | 
+| pct_computer_with_broadband | Weighted average of the percent of the population  - Has a computer:!!With a broadband Internet subscription | 
+| pct_computer_no_internet | Weighted average of the percent of the population  - Has a computer:!!Without an Internet subscription | 
+| pct_no_computer | Weighted average of the percent of the population  - No computer | 
+
+
+
+## More Info on RUCA Codes
+Below is more information on the RUCA codes RUCA1 & RUCA2
+Primary RUCA Codes, 2010	
+1    Metropolitan area core: primary flow within an urbanized area (UA)	
+2    Metropolitan area high commuting: primary flow 30% or more to a UA	
+3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	
+4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	
+5    Micropolitan high commuting: primary flow 30% or more to a large UC	
+6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	
+7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	
+8    Small town high commuting: primary flow 30% or more to a small UC	
+9    Small town low commuting: primary flow 10% to 30% to a small UC	
+10  Rural areas: primary flow to a tract outside a UA or UC	
+99  Not coded: Census tract has zero population and no rural-urban identifier information	
+	
+Secondary RUCA Codes, 2010	
+1    Metropolitan area core: primary flow within an urbanized area (UA)	
+1	No additional code
+1.1	Secondary flow 30% to 50% to a larger UA
+2    Metropolitan area high commuting: primary flow 30% or more to a UA	
+2	No additional code
+2.1	Secondary flow 30% to 50% to a larger UA
+3    Metropolitan area low commuting: primary flow 10% to 30% to a UA	
+3	No additional code
+4    Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC)	
+4	No additional code
+4.1	Secondary flow 30% to 50% to a UA
+5    Micropolitan high commuting: primary flow 30% or more to a large UC	
+5	No additional code
+5.1	Secondary flow 30% to 50% to a UA
+6    Micropolitan low commuting: primary flow 10% to 30% to a large UC	
+6	No additional code
+7    Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)	
+7	No additional code
+7.1	Secondary flow 30% to 50% to a UA
+7.2	Secondary flow 30% to 50% to a large UC
+8    Small town high commuting: primary flow 30% or more to a small UC	
+8	No additional code
+8.1	Secondary flow 30% to 50% to a UA
+8.2	Secondary flow 30% to 50% to a large UC
+9    Small town low commuting: primary flow 10% to 30% to a small UC	
+9	No additional code
+10  Rural areas: primary flow to a tract outside a UA or UC	
+10	No additional code
+10.1	Secondary flow 30% to 50% to a UA
+10.2	Secondary flow 30% to 50% to a large UC
+10.3	Secondary flow 30% to 50% to a small UC
+99  Not coded: Census tract has zero population and no rural-urban identifier information	
