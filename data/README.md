@@ -11,6 +11,8 @@
 |[EBB Program Data](https://www.usac.org/about/emergency-broadband-benefit-program/emergency-broadband-benefit-program-enrollments-and-claims-tracker/) | Total enrolled households in the EBB program by zipcode |
 |[Gazetteer Files](https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html) |  The U.S. Gazetteer Files provide a listing of all geographic areas for selected geographic area types. The files include geographic identifier codes, names, area measurements, and representative latitude and longitude coordinates.|
 |[Form 477 Broadband Deployment Data - December 2019 (version 1)](https://www.fcc.gov/form-477-broadband-deployment-data-december-2019-version-1)| Fixed Broadband Deployment Data. Info about the data is [here](https://www.fcc.gov/general/explanation-broadband-deployment-data) |
+|[National Broadband Map Indicators of Need](https://broadbandusa.maps.arcgis.com/home/item.html?id=c3a602c2025845afab61b289e1b15482)| A csv export of census tract level data used to power the [Indicators of Broadband Need map](https://broadbandusa.maps.arcgis.com/apps/webappviewer/index.html?id=e2b4907376b548f892672ef6afbc0da5) with the [user guide](https://broadbandusa.ntia.doc.gov/sites/default/files/2021-06/Indicators%20of%20Broadband%20Need%20-%20User%20Guide%20062421.pdf) |
+
 
 ## Data Files
 
@@ -28,7 +30,7 @@
 | zips_rural_urban.xlsx | Dataset from [Rural-Urban Commuting Area Codes](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes.aspx) |
 |aggregated_fcc_by_tract.csv| A dataset created using the [FCC.ipynb](https://github.com/jcweaver/broadband-capstone/blob/main/notebooks/FCC.ipynb) notebook to add a tract geoid, aggregate provider count by tract, speed, and technology type, and correct tract ids with geography changes since 2010 tract code definitions. |
 |fcc_census.csv | A merged dataset using aggregated_fcc_by_tract.csv and relabeled_census.csv. Final/recommended dataset to use for the project. |
-
+|fcc_census_2.csv | A merged dataset that added a few more Census columns and the Ookla columns to fcc_census.csv |
 
 ## Overview of Data Columns
 
@@ -39,11 +41,15 @@ The table below is a brief overview of the data columns found in the current fin
 | tract_geoid | An 11-digit [GEOID code](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html) that uniquely identifies this Census tract from other Census tracts in the US. This code may start with 0 so it is best to read in with: pd.read_csv("../data/fcc_census.csv", converters = {"tract_geoid" : lambda x: str(x)}) so that pandas does not strip the 0  |
 | All_Provider_Count | A count of the unique provider IDs that service the area  |
 | All_Providers | A set of the unique IDs that service the area. You can use the [fcc_names.csv](https://github.com/jcweaver/broadband-capstone/blob/main/data/fcc_names.csv) to map provider ids to the provider name or the doing business as name. |
+| MaxAdDown | The maximum download speed of all max speeds provided in any blocks in the tract |
+| MaxAdUp | The maximum upload speed of all max speeds provided in any blocks in the tract |
+| AllMaxAdDown | The set of all max download speeds offered in any blocks in the tract |
+| AllMaxAdUp | The set of all max upload speeds offered in any blocks in the tract |
 | Wired_Provider_Count | A count of unique provider IDs that service the area and are considered Wired technology type. This refers to a reported  [TechCode](https://www.fcc.gov/general/technology-codes-used-fixed-broadband-deployment-data) of 10-50 (i.e. DSL, Copper, Cable Modem, or Fiber) |
 | Satellite_Provider_Count | A count of unique provider IDs that service the area and are considered Wired technology type. This refers to a reported  [TechCode](https://www.fcc.gov/general/technology-codes-used-fixed-broadband-deployment-data) of 60 (i.e. Satellite) |
 | Fixed_Wireless_Provider_Count | A count of unique provider IDs that service the area and are considered Wired technology type. This refers to a reported  [TechCode](https://www.fcc.gov/general/technology-codes-used-fixed-broadband-deployment-data) of 70 (i.e. Terrestrial Fixed Wireless) |
-| All_Provider_Count_25 |  |
-| All_Provider_Count_100 |  |
+| All_Provider_Count_25 | A count of all unique provider IDs that service the area and have a max speed over 25 mbps |
+| All_Provider_Count_100 | A count of all unique provider IDs that service the area and have a max speed over 100 mbps  |
 | Fixed_Wireless_Provider_Count_25 |  |
 | Wired_Provider_Count_25 |  |
 | Satellite_Provider_Count_25 |  |
@@ -51,51 +57,96 @@ The table below is a brief overview of the data columns found in the current fin
 | Wired_Provider_Count_100 |  |
 | Satellite_Provider_Count_100 |  |
 | NAME | The full name of the census tract |
-| median_age_overall | Weighted average of the median age of all residents in the census tract |
-| median_age_male | Weighted average of the median age of all male residents in the census tract  |
-| median_age_female | Weighted average of the median age of all female residents in the census tract  |
-| employment_rate | Weighted average of the % of the population that is employed in the census tract |
-| median_income | Weighted average of the median income of all residents in the census tract |
-| total_households | Weighted average of the total number of households in the census tract |
-| ave_household_size | Weighted average of the average household size in the census tract  |
-| ave_family_size | Weighted average of the average family size in the census tract  |
-| total_population | Weighted average of the total population size in the census tract  |
-| median_house_value | Weighted average of the median house value in the census tract  | 
-| pct_white | Weighted average of the percent non-Hispanic/Latino white in the census tract | 
-| pct_hisp_latino | Weighted average of the percent Hispanic/Latino of any race in the census tract | 
-| pct_black | Weighted average of the percent non-Hispanic/Latino black in the census tract | 
-| pct_native | Weighted average of the percent non-Hispanic/Latino American Indian and Alaska Native in the census tract | 
-| pct_asian | Weighted average of the percent non-Hispanic/Latino Asian in the census tract | 
-| pct_hi_pi | Weighted average of the percent non-Hispanic/Latino Native Hawaiian and Other Pacific Islander in the census tract | 
-| pct_other_race | Weighted average of the percent non-Hispanic/Latino and some other race alone in the census tract | 
-| pct_two+_race | Weighted average of the percent non-Hispanic/Latino two or more races alone in the census tract |
-| pct_rent_burdened | Weighted average of the percent of the population that pays more than 30% of their income on rent in the census tract | 
-| poverty_rate | Weighted average of the percent of the population in poverty in the census tract  | 
-| pct_pop_bachelors+ | Weighted average of the percent of the population with at least a Bachelor's degree in the census tract  | 
-| pct_pop_hs+ | Weighted average of the percent of the population with at least a HS diploma in the census tract  | 
-| pct_internet | Weighted average of the percent of the population with an internet subscription in the census tract  | 
-| pct_internet_dial_up | Weighted average of the percent of the population with a dial-up internet subscription in the census tract | 
-| pct_internet_broadband_any_type | Weighted average of the percent of the population with a broadband (>25mbps) internet subscription of any type in the census tract | 
-| pct_internet_cellular | Weighted average of the percent of the population with a internet subscription and a cellular data plan in the census tract | 
-| pct_only_cellular |  Weighted average of the percent of the population with only a cellular data plan as the internet subscription in the census tract | 
-| pct_internet_broadband_fiber | Weighted average of the percent of the population  - With an Internet subscription!!Broadband such as cable, fiber optic or DSL | 
-| pct_internet_broadband_satellite | Weighted average of the percent of the population  - With an Internet subscription!!Satellite Internet service | 
-| pct_internet_only_satellite | Weighted average of the percent of the population  - With an Internet subscription!!Satellite Internet service!!Satellite Internet service with no other type of Internet subscription | 
-| pct_internet_other | Weighted average of the percent of the population  - With an Internet subscription!!Other service with no other type of Internet subscription | 
-| pct_internet_no_subscrp | Weighted average of the percent of the population  - Internet access without a subscription | 
-| pct_internet_none | Weighted average of the percent of the population  - No Internet access | 
-| pct_computer | Weighted average of the percent of the population  - Has a computer |
-| pct_computer_with_dialup | Weighted average of the percent of the population  - Has a computer:!!With dial-up Internet subscription alone | 
-| pct_computer_with_broadband | Weighted average of the percent of the population  - Has a computer:!!With a broadband Internet subscription | 
-| pct_computer_no_internet | Weighted average of the percent of the population  - Has a computer:!!Without an Internet subscription | 
-| pct_no_computer | Weighted average of the percent of the population  - No computer | 
+| median_age_overall |  median age of all residents in the census tract |
+| median_age_male |  median age of all male residents in the census tract  |
+| median_age_female |  median age of all female residents in the census tract  |
+| employment_rate |  % of the population that is employed in the census tract |
+| median_income |  median income of all residents in the census tract |
+| total_households |  total number of households in the census tract |
+| ave_household_size |  average household size in the census tract  |
+| ave_family_size |  average family size in the census tract  |
+| total_population |  total population size in the census tract  |
+| median_house_value |  median house value in the census tract  | 
+| pct_white |  percent non-Hispanic/Latino white in the census tract | 
+| pct_hisp_latino |  percent Hispanic/Latino of any race in the census tract | 
+| pct_black |  percent non-Hispanic/Latino black in the census tract | 
+| pct_native |  percent non-Hispanic/Latino American Indian and Alaska Native in the census tract | 
+| pct_asian |  percent non-Hispanic/Latino Asian in the census tract | 
+| pct_hi_pi |  percent non-Hispanic/Latino Native Hawaiian and Other Pacific Islander in the census tract | 
+| pct_other_race |  percent non-Hispanic/Latino and some other race alone in the census tract | 
+| pct_two+_race |  percent non-Hispanic/Latino two or more races alone in the census tract |
+| pct_rent_burdened |  percent of the population that pays more than 30% of their income on rent in the census tract | 
+| poverty_rate |  percent of the population in poverty in the census tract  | 
+| pct_pop_bachelors+ |  percent of the population with at least a Bachelor's degree in the census tract  | 
+| pct_pop_hs+ |  percent of the population with at least a HS diploma in the census tract  | 
+| pct_internet |  percent of the population with an internet subscription in the census tract  | 
+| pct_internet_dial_up |  percent of the population with a dial-up internet subscription in the census tract | 
+| pct_internet_broadband_any_type |  percent of the population with a broadband (>25mbps) internet subscription of any type in the census tract | 
+| pct_internet_cellular |  percent of the population with a internet subscription and a cellular data plan in the census tract | 
+| pct_only_cellular |   percent of the population with only a cellular data plan as the internet subscription in the census tract | 
+| pct_internet_broadband_fiber |  percent of the population  - With an Internet subscription!!Broadband such as cable, fiber optic or DSL | 
+| pct_internet_broadband_satellite |  percent of the population  - With an Internet subscription!!Satellite Internet service | 
+| pct_internet_only_satellite |  percent of the population  - With an Internet subscription!!Satellite Internet service!!Satellite Internet service with no other type of Internet subscription | 
+| pct_internet_other |  percent of the population  - With an Internet subscription!!Other service with no other type of Internet subscription | 
+| pct_internet_no_subscrp |  percent of the population  - Internet access without a subscription | 
+| pct_internet_none |  percent of the population  - No Internet access | 
+| pct_computer |  percent of the population  - Has a computer |
+| pct_computer_with_dialup |  percent of the population  - Has a computer:!!With dial-up Internet subscription alone | 
+| pct_computer_with_broadband |  percent of the population  - Has a computer:!!With a broadband Internet subscription | 
+| pct_computer_no_internet |  percent of the population  - Has a computer:!!Without an Internet subscription | 
+| pct_no_computer |  percent of the population  - No computer | 
 | GEOID | This is the same as the tract_geoid and could be dropped. |
 | ALAND | The square meters of land in the tract |
 | AWATER | The square meters of water in the tract  |
 | ALAND_SQMI | The square mileage of land in the tract  |
 | AWATER_SQMI | The square mileage of water in the tract  |
 | population_density | the population divided by the square mileage (i.e. people/sq mile) |
-
+| pct_pop_ged | the percent of population that got a GED or alternative credential |
+ | pct_pop_some_college | Some college attended but no degree awarded |
+ | pct_pop_associates | the percent of population that got an Associate's degree |
+ | pct_pop_foreign_born | the percent of population that was born outside the US |
+ | pct_pop_ssi_households | the percent of households that receive SUPPLEMENTAL SECURITY INCOME (SSI), CASH PUBLIC ASSISTANCE INCOME, OR FOOD STAMPS/SNAP IN THE PAST 12 MONTHS BY HOUSEHOLD TYPE FOR CHILDREN UNDER 18 YEARS IN HOUSEHOLDS |
+ | pct_pop_lt_10k | the percent of population with household income less than $10K |
+ | pct_pop_10k_thru_15k |  |
+ | pct_pop_15k_thru_20k |  |
+ | pct_pop_20k_thru_25k |  |
+ | pct_pop_25k_thru_30k |  |
+ | pct_pop_30k_thru_35k |  |
+ | pct_pop_35k_thru_40k |  |
+ | pct_pop_40k_thru_45k |  |
+ | pct_pop_45k_thru_50k |  |
+ | pct_pop_50k_thru_60k |  |
+ | pct_pop_60k_thru_75k |  |
+ | pct_pop_75k_thru_100k |  |
+ | pct_pop_100k_thru_125k |  |
+ | pct_pop_125k_thru_150k |  |
+ | pct_pop_150k_thru_200k |  |
+ | pct_pop_gt_200k | the percent of population with household income greater than $200K |
+ | pct_pop_lt_5 | the percent of population that are younger than 5 years old |
+ | pct_pop_5_to_9 | the percent of population that are ages 5 through 9 years old |
+ | pct_pop_10_to_14 |  |
+ | pct_pop_15_to_19 |  |
+ | pct_pop_20_to_24 |  |
+ | pct_pop_25_to_29 |  |
+ | pct_pop_30_to_34 |  |
+ | pct_pop_35_to_39 |  |
+ | pct_pop_40_to_44 |  |
+ | pct_pop_45_to_49 |  |
+ | pct_pop_50_to_54 |  |
+ | pct_pop_55_to_59 |  |
+ | pct_pop_60_to_64 |  |
+ | pct_pop_65_to_69 |  |
+ | pct_pop_70_to_74 |  |
+ | pct_pop_75_to_79 |  |
+ | pct_pop_80_to_84 |  |
+ | pct_pop_gt_85 | the percent of population that are older than 85 years old |
+ | pct_pop_disability | the percent of population with a disability |
+ | pct_pop_households_with_kids | the percent of households with children under 18 living at the household |
+| pct_health_ins_children | the percent of children < 18 that have health insurance |
+| pct_health_ins_19_64     | the percent of people ages 19-64 that have health insurance |              
+| pct_health_ins_65+ | the percent of people older than 65 that have health insurance |
+| Ookla Median Download Speed (Mbps) | |
+| Ookla Median Upload Speed (Mbps)|  |
 
 
 The table below is a brief overview of the data columns found in the previously final dataset: [weighted_merged_all.csv](https://github.com/jcweaver/broadband-capstone/blob/main/data/weighted_merged_all.csv)
