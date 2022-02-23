@@ -19,7 +19,8 @@ create_session = lambda : requests.Session()
 def format_request(endpoint, codes, state):
     base = 'https://api.census.gov/data'
     #Register for a key here: https://api.census.gov/data/key_signup.html
-    key = 'daeac6d558149025218d49696ca5c9988533bd37'
+    #key = '468ff786c0c900824caad6cb2623e7c4c7cd3031'
+    key = '613f835e522e3664c4ef55859c35824cf26dadc3'
     date = '2019'
     
     codes = f"get=NAME,{','.join(map(str,codes))}"
@@ -27,6 +28,7 @@ def format_request(endpoint, codes, state):
     state = f'in=state:{pad_with_zero(state)}'
     key = f'key={key}'
     
+    #bg = 'for=block%20group:*'
     tract = f'for=tract:*'
     args = '&'.join(map(str, [codes, tract, state, key]))
     
