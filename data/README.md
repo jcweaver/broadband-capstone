@@ -13,6 +13,8 @@
 |[Form 477 Broadband Deployment Data - December 2019 (version 1)](https://www.fcc.gov/form-477-broadband-deployment-data-december-2019-version-1)| Fixed Broadband Deployment Data. Info about the data is [here](https://www.fcc.gov/general/explanation-broadband-deployment-data) |
 |[National Broadband Map Indicators of Need](https://broadbandusa.maps.arcgis.com/home/item.html?id=c3a602c2025845afab61b289e1b15482)| A csv export of census tract level data used to power the [Indicators of Broadband Need map](https://broadbandusa.maps.arcgis.com/apps/webappviewer/index.html?id=e2b4907376b548f892672ef6afbc0da5) with the [user guide](https://broadbandusa.ntia.doc.gov/sites/default/files/2021-06/Indicators%20of%20Broadband%20Need%20-%20User%20Guide%20062421.pdf) |
 
+Gallardo, R. (2020). Digital Divide Index. Purdue Center for Regional Development. Retrieved from Digital Divide Index (DDI):  http://pcrd.purdue.edu/ddi
+
 
 ## Data Files
 
