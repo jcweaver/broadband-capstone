@@ -149,6 +149,29 @@ The table below is a brief overview of the data columns found in the current fin
 | pct_health_ins_65+ | the percent of people older than 65 that have health insurance |
 | Ookla Median Download Speed (Mbps) | |
 | Ookla Median Upload Speed (Mbps)|  |
+| DDI | The DDI from the [Purdue Digital Divide Index](https://storymaps.arcgis.com/stories/8ad45c48ba5c43d8ad36240ff0ea0dc7) measures primarily physical access/adoption and socioeconomic characteristics that may limit motivation, skills, and usage. Due to data limitations it was designed as a descriptive and pragmatic tool and is not intended to be comprehensive. |
+| INFA | INFA from the [Purdue Digital Divide Index](https://storymaps.arcgis.com/stories/8ad45c48ba5c43d8ad36240ff0ea0dc7) score groups five variables related to broadband infrastructure and adoption: (1) percentage of total 2018 population without access to fixed broadband of at least 100 Mbps download and 20 Mbps upload as of December 2019; (2) percent of homes without a computing device (desktops, laptops, smartphones, tablets, etc.); (3) percent of homes with no internet access (have no internet subscription, including cellular data plans or dial-up); (4) median maximum advertised download speeds; and (5) median maximum advertised upload speeds. |
+| SE | SE from the [Purdue Digital Divide Index](https://storymaps.arcgis.com/stories/8ad45c48ba5c43d8ad36240ff0ea0dc7) score groups five variables known to impact technology adoption: (1) percent population ages 65 and over; (2) percent population 25 and over with less than high school; (3) individual poverty rate; (4) percent of noninstitutionalized civilian population with a disability: and (5) a brand new digital inequality or internet income ratio measure (IIR). In other words, these variables indirectly measure adoption since they are potential predictors of lagging technology adoption or reinforcing existing inequalities that also affect adoption. |
+| pct_pop_income_lt_50k | The percent of the population with incomes < $50K |
+| pct_pop_income_lt_30k | The percent of the population with incomes < $30K |
+| pct_pop_income_gt_100k | The percent of the population with incomes > $100K  |
+| pct_ages_gt_50 | The percent of the population older than 50 |
+| pct_ages_lt_19 | The percent of the population younger than 19 |
+| ruca_metro | The tract has a RUCA code of 1, 2, or 3, corresponding to a metropolitan area |
+| ruca_micro | The tract has a RUCA code of 4, 5, or 6, corresponding to a micropolitan area |
+| ruca_small_town | The tract has a RUCA code of 7, 8, or 9, corresponding to a small town area |
+| ruca_rural | The tract has a RUCA code of 10, corresponding to a rural area |
+| Comcast_present | Comcast is a provider of at least some areas in the tract |
+| ATT_present | AT&T is a provider of at least some areas in the tract |
+| HughesNet_present | Hughes Net is a provider of at least some areas in the tract |
+| GCI_Comm_Corp_present | GCI Communications Corporation is a provider of at least some areas in the tract |
+| ViaSat_present | ViaSat is a provider of at least some areas in the tract |
+| VSAT_present | VSAT is a provider of at least some areas in the tract |
+| Century_Link_present | Century Link is a provider of at least some areas in the tract |
+| Spectrum_present | Spectrum is a provider of at least some areas in the tract |
+| Crown_Castle_present | Crown Castle is a provider of at least some areas in the tract |
+| Etheric_present | Etheric is a provider of at least some areas in the tract |
+| Frontier_Communications_present | Frontier Communications is a provider of at least some areas in the tract |
 
 
 The table below is a brief overview of the data columns found in the previously final dataset: [weighted_merged_all.csv](https://github.com/jcweaver/broadband-capstone/blob/main/data/weighted_merged_all.csv)
