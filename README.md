@@ -6,7 +6,6 @@ Our lives are governed by how connected we are to others, and during the pandemi
 
 We are working with the California Broadband Council to help answer that question. Our tool allows users to adjust broadband metrics in a region to see how they impact various socio-economic metrics. For example, it could predict that a 10 MBPs increase in broadband speed within a region would result in a 2% increase in employment rate or an increase of around 20 more people employed if in a region sized 1000. Using our tool, government agencies will have visibility into how to prioritize their funding, and help those most in need. 
 
-Link to tool: https://apps-spring21.ischool.berkeley.edu/broadband_impact/
 
 ## GitHub Repo Structure
 This repo is structured in four sections:
